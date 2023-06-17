@@ -1,5 +1,14 @@
 #pragma once
 
+#define  MAX_BREACH_TYPE         3u
+#define  MAX_COOLING_TYPE        3u
+#define  PASSIVE_COOLING_LL      0u
+#define  PASSIVE_COOLING_UL      35u
+#define  HI_ACTIVE_COOLING_LL    0u
+#define  HI_ACTIVE_COOLING_UL    45u
+#define  MED_ACTIVE_COOLING_LL   0u
+#define  MED_ACTIVE_COOLING_UL   40u
+
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
