@@ -15,7 +15,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType,
     {
         return TOO_LOW;
     }
-    if(value > upperLimit[coolingType])
+    if(temperatureInC > upperLimit[coolingType])
     {
         return TOO_HIGH;
     }
