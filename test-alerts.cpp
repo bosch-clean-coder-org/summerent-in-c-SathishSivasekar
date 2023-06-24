@@ -47,11 +47,13 @@ TEST_CASE("Test9 : Temperature breach for mid coolling type high limit") {
 
 
 TEST_CASE("Test10 : Check and alert for passive cooling and send to controller") {
-    BatteryCharacter batteryChar = {PASSIVE_COOLING};
+    BatteryCharacter batteryChar = {PASSIVE_COOLING, "Dummy"};
+    REQUIRE(classifyTemperatureBreach(batteryChar.coolingType,30) == NORMAL);
     checkAndAlert(TO_CONTROLLER, batteryChar, 30);
 }
 
 TEST_CASE("Test11 : Check and alert for passive cooling and send to email") {
-    BatteryCharacter batteryChar = {PASSIVE_COOLING};
+    BatteryCharacter batteryChar = {PASSIVE_COOLING, "Dummy"};
+    REQUIRE(classifyTemperatureBreach(batteryChar.coolingType,30) == NORMAL);
     checkAndAlert(TO_EMAIL, batteryChar, 30);
 }
