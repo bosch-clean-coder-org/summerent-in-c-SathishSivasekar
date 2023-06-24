@@ -1,19 +1,6 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
-BreachType inferBreach(double value, double lowerLimit, double upperLimit)
-{
-    if(value < lowerLimit)
-    {
-        return TOO_LOW;
-    }
-    if(value > upperLimit)
-    {
-        return TOO_HIGH;
-    }
-    return NORMAL;
-}
-
 BreachType classifyTemperatureBreach(CoolingType coolingType, 
                                      double temperatureInC)
 {
@@ -24,8 +11,15 @@ BreachType classifyTemperatureBreach(CoolingType coolingType,
                                         HI_ACTIVE_COOLING_UL,
                                         MED_ACTIVE_COOLING_UL};
 
-    return inferBreach(temperatureInC, lowerLimit[coolingType],
-                                        upperLimit[coolingType]);
+    if(temperatureInC < lowerLimit[coolingType])
+    {
+        return TOO_LOW;
+    }
+    if(value > upperLimit[coolingType])
+    {
+        return TOO_HIGH;
+    }
+    return NORMAL;
 }
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, 
@@ -59,7 +53,6 @@ void sendToEmail(BreachType breachType)
                                       "Hi, the temperature is too low\n",
                                       "Hi, the temperature is too high\n"
                                       };
-
     printf("To: %s\n", recepient);
     printf("%s \n", temp_cond[breachType]);
 }
