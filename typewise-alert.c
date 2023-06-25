@@ -2,6 +2,8 @@
 #include "typewise-alert-config.h"
 #include <stdio.h>
 
+extern LimitCheck Limit[MAX_COOLING_TYPE];
+
 BreachType classifyTemperatureBreach(CoolingType coolingType, 
                                      double temperatureInC)
 {
