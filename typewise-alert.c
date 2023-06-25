@@ -4,18 +4,11 @@
 BreachType classifyTemperatureBreach(CoolingType coolingType, 
                                      double temperatureInC)
 {
-    int lowerLimit[MAX_COOLING_TYPE] = {PASSIVE_COOLING_LL,
-                                        HI_ACTIVE_COOLING_LL,
-                                        MED_ACTIVE_COOLING_LL};
-    int upperLimit[MAX_COOLING_TYPE] = {PASSIVE_COOLING_UL,
-                                        HI_ACTIVE_COOLING_UL,
-                                        MED_ACTIVE_COOLING_UL};
-
-    if(temperatureInC < lowerLimit[coolingType])
+    if(temperatureInC < Limit[coolingType].lowerLimit)
     {
         return TOO_LOW;
     }
-    if(temperatureInC > upperLimit[coolingType])
+    if(temperatureInC > Limit[coolingType].upperLimit)
     {
         return TOO_HIGH;
     }
