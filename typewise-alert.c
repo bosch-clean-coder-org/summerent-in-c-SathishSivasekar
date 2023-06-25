@@ -1,4 +1,5 @@
 #include "typewise-alert.h"
+#include "typewise-alert-config.h"
 #include <stdio.h>
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, 
